@@ -123,7 +123,7 @@ java -jar target/retailpos-1.0.0.jar
 | Admin | `admin` | `admin123` |
 | Cashier | `cashier1` | `cashier123` |
 
-*(Created automatically on first run by DatabaseHelper)*
+*(Default to use ....)*
 
 ---
 
