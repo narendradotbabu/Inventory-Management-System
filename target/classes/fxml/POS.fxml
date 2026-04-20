@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.retailpos.controller.POSController"
+            styleClass="pos-root">
+
+    <top>
+        <HBox styleClass="pos-topbar" spacing="12" alignment="CENTER_LEFT">
+            <padding><Insets top="10" right="16" bottom="10" left="16"/></padding>
+            <Label text="Point of Sale" styleClass="section-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="transactionLabel" styleClass="txn-label"/>
+            <Label fx:id="dateTimeLabel" styleClass="datetime-label"/>
+        </HBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.55">
+
+            <!-- LEFT: Product Grid + Search -->
+            <VBox spacing="8" styleClass="panel">
+                <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+
+                <HBox spacing="8" alignment="CENTER_LEFT">
+                    <TextField fx:id="searchField" promptText="🔍 Search products..."
+                               styleClass="search-field" HBox.hgrow="ALWAYS"/>
+                    <TextField fx:id="barcodeField" promptText="📷 Scan barcode..."
+                               styleClass="search-field" prefWidth="180"/>
+                </HBox>
+
+                <ScrollPane fx:id="productScroll" VBox.vgrow="ALWAYS" fitToWidth="true"
+                            styleClass="product-scroll">
+                    <FlowPane fx:id="productGrid" hgap="10" vgap="10" prefWrapLength="600">
+                        <padding><Insets top="8" right="4" bottom="8" left="4"/></padding>
+                    </FlowPane>
+                </ScrollPane>
+            </VBox>
+
+            <!-- RIGHT: Cart + Payment -->
+            <VBox spacing="8" styleClass="panel">
+                <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+
+                <Label text="Shopping Cart" styleClass="panel-title"/>
+
+                <TableView fx:id="cartTable" VBox.vgrow="ALWAYS" styleClass="cart-table">
+                    <columns>
+                        <TableColumn fx:id="colProduct" text="Product" prefWidth="140"/>
+                        <TableColumn fx:id="colBarcode" text="Barcode" prefWidth="80"/>
+                        <TableColumn fx:id="colQty" text="Qty" prefWidth="45"/>
+                        <TableColumn fx:id="colPrice" text="Price" prefWidth="75"/>
+                        <TableColumn fx:id="colSubtotal" text="Subtotal" prefWidth="80"/>
+                        <TableColumn fx:id="colAction" text="Actions" prefWidth="105"/>
+                    </columns>
+                </TableView>
+
+                <!-- Totals -->
+                <GridPane styleClass="totals-grid" hgap="8" vgap="4">
+                    <padding><Insets top="8" right="8" bottom="8" left="8"/></padding>
+                    <Label text="Subtotal:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="totals-label"/>
+                    <Label fx:id="subtotalLabel" text="₹0.00" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="totals-value"/>
+                    <Label text="Tax (GST):" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="totals-label"/>
+                    <Label fx:id="taxLabel" text="₹0.00" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="totals-value"/>
+                    <Label text="TOTAL:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="total-big-label"/>
+                    <Label fx:id="totalLabel" text="₹0.00" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="total-big-value"/>
+                </GridPane>
+
+                <!-- Payment Section -->
+                <VBox styleClass="payment-box" spacing="8">
+                    <padding><Insets top="8" right="8" bottom="8" left="8"/></padding>
+                    <Label text="Payment Method" styleClass="panel-title"/>
+                    <HBox spacing="12">
+                        <RadioButton fx:id="cashRadio" text="💵 Cash"/>
+                        <RadioButton fx:id="upiRadio" text="📱 UPI"/>
+                        <RadioButton fx:id="cardRadio" text="💳 Card"/>
+                    </HBox>
+
+                    <VBox fx:id="cashBox" spacing="6">
+                        <HBox spacing="8" alignment="CENTER_LEFT">
+                            <Label text="Cash Received (₹):" styleClass="totals-label"/>
+                            <TextField fx:id="cashReceivedField" promptText="0.00"
+                                       onKeyReleased="#updateChange" prefWidth="120"/>
+                        </HBox>
+                        <HBox spacing="8" alignment="CENTER_LEFT">
+                            <Label text="Change:" styleClass="totals-label"/>
+                            <Label fx:id="changeLabel" text="—" styleClass="change-label"/>
+                        </HBox>
+                    </VBox>
+                </VBox>
+
+                <!-- Action Buttons -->
+                <HBox spacing="8">
+                    <Button text="🗑 Clear Cart" onAction="#clearCart" styleClass="clear-btn" prefHeight="40" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                    <Button text="✓ Process Payment" onAction="#processPayment" styleClass="pay-btn" prefHeight="40" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                </HBox>
+
+                <Label fx:id="statusLabel" styleClass="status-label" wrapText="true" maxWidth="Infinity"/>
+            </VBox>
+        </SplitPane>
+    </center>
+</BorderPane>

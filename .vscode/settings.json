@@ -1,0 +1,8 @@
+{
+    "java.project.sourcePaths": ["src/main/java"],
+    "java.project.outputPath": "target/classes",
+    "java.project.referencedLibraries": [],
+    "java.compile.nullAnalysis.mode": "automatic",
+    "editor.formatOnSave": true,
+    "java.configuration.updateBuildConfiguration": "automatic"
+}

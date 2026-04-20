@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.retailpos.controller.MainController"
+            styleClass="main-root">
+
+    <!-- Sidebar -->
+    <left>
+        <VBox styleClass="sidebar" prefWidth="200" spacing="4">
+            <padding><Insets top="20" right="12" bottom="20" left="12"/></padding>
+
+            <Label text="🛒 RetailPOS" styleClass="sidebar-logo"/>
+            <Label fx:id="userLabel" styleClass="sidebar-user" wrapText="true"/>
+
+            <Separator style="-fx-padding: 8 0 8 0;"/>
+
+            <Button fx:id="posBtn" text="🏪  Point of Sale" onAction="#showPOS"
+                    styleClass="nav-btn, nav-active" maxWidth="Infinity"/>
+            <Button fx:id="inventoryBtn" text="📦  Inventory" onAction="#showInventory"
+                    styleClass="nav-btn" maxWidth="Infinity"/>
+            <Button fx:id="returnsBtn" text="↩  Returns" onAction="#showReturns"
+                    styleClass="nav-btn" maxWidth="Infinity"/>
+            <Button fx:id="usersBtn" text="👤  Users" onAction="#showUsers"
+                    styleClass="nav-btn" maxWidth="Infinity"/>
+            <Button fx:id="reportsBtn" text="📊  Reports" onAction="#showReports"
+                    styleClass="nav-btn" maxWidth="Infinity"/>
+
+            <Region VBox.vgrow="ALWAYS"/>
+            <Separator/>
+            <Button text="🚪  Logout" onAction="#handleLogout"
+                    styleClass="nav-btn, logout-btn" maxWidth="Infinity"/>
+        </VBox>
+    </left>
+
+    <!-- Content Area -->
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-area"/>
+    </center>
+</BorderPane>

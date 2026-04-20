@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.retailpos.controller.ReportsController"
+            styleClass="pos-root">
+
+    <top>
+        <HBox styleClass="pos-topbar" spacing="12" alignment="CENTER_LEFT">
+            <padding><Insets top="10" right="16" bottom="10" left="16"/></padding>
+            <Label text="Sales Reports" styleClass="section-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="↻ Refresh" onAction="#handleRefresh" styleClass="nav-btn"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="14" styleClass="panel">
+            <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+
+            <!-- KPI Row -->
+            <HBox spacing="16">
+                <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" maxWidth="Infinity" alignment="CENTER" spacing="4">
+                    <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                    <Label text="Today's Revenue" styleClass="kpi-title"/>
+                    <Label fx:id="todayRevenueLabel" text="₹0.00" styleClass="kpi-value"/>
+                </VBox>
+                <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" maxWidth="Infinity" alignment="CENTER" spacing="4">
+                    <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                    <Label text="Transactions Today" styleClass="kpi-title"/>
+                    <Label fx:id="todayTxnLabel" text="0" styleClass="kpi-value"/>
+                </VBox>
+                <VBox styleClass="kpi-card" HBox.hgrow="ALWAYS" maxWidth="Infinity" alignment="CENTER" spacing="4">
+                    <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                    <Label text="Total Products" styleClass="kpi-title"/>
+                    <Label fx:id="totalProductsLabel" text="0" styleClass="kpi-value"/>
+                </VBox>
+            </HBox>
+
+            <Label text="Recent Sales (Last 50)" styleClass="panel-title"/>
+            <TableView fx:id="salesTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId" text="Sale #" prefWidth="70"/>
+                    <TableColumn fx:id="colDate" text="Date/Time" prefWidth="160"/>
+                    <TableColumn fx:id="colSubtotal" text="Subtotal" prefWidth="100"/>
+                    <TableColumn fx:id="colTax" text="Tax" prefWidth="90"/>
+                    <TableColumn fx:id="colTotal" text="Total" prefWidth="100"/>
+                    <TableColumn fx:id="colPayment" text="Payment" prefWidth="110"/>
+                    <TableColumn fx:id="colStatus" text="Status" prefWidth="90"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

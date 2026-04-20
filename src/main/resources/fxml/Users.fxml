@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.retailpos.controller.UsersController"
+            styleClass="pos-root">
+
+    <top>
+        <HBox styleClass="pos-topbar" spacing="12" alignment="CENTER_LEFT">
+            <padding><Insets top="10" right="16" bottom="10" left="16"/></padding>
+            <Label text="User Management" styleClass="section-title"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="10" styleClass="panel">
+            <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <Button fx:id="addBtn" text="+ Add User" onAction="#handleAdd" styleClass="add-btn"/>
+                <Button fx:id="editBtn" text="✏ Edit" onAction="#handleEdit" styleClass="edit-btn"/>
+                <Button fx:id="deleteBtn" text="🗑 Delete" onAction="#handleDelete" styleClass="danger-btn"/>
+                <Button text="↻ Refresh" onAction="#handleRefresh" styleClass="nav-btn"/>
+            </HBox>
+
+            <TableView fx:id="userTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="60"/>
+                    <TableColumn fx:id="colName" text="Name" prefWidth="180"/>
+                    <TableColumn fx:id="colUsername" text="Username" prefWidth="140"/>
+                    <TableColumn fx:id="colRole" text="Role" prefWidth="100"/>
+                </columns>
+            </TableView>
+
+            <Label fx:id="statusLabel" styleClass="status-label"/>
+        </VBox>
+    </center>
+</BorderPane>

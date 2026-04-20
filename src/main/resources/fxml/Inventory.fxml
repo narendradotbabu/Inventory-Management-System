@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.retailpos.controller.InventoryController"
+            styleClass="pos-root">
+
+    <top>
+        <HBox styleClass="pos-topbar" spacing="12" alignment="CENTER_LEFT">
+            <padding><Insets top="10" right="16" bottom="10" left="16"/></padding>
+            <Label text="Inventory Management" styleClass="section-title"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="totalProductsLabel" styleClass="stat-chip"/>
+            <Label fx:id="lowStockLabel" styleClass="stat-chip"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="10" styleClass="panel">
+            <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+
+            <HBox spacing="8" alignment="CENTER_LEFT">
+                <TextField fx:id="searchField" promptText="🔍 Search by name, barcode, or category..."
+                           styleClass="search-field" HBox.hgrow="ALWAYS"/>
+                <Button fx:id="addBtn" text="+ Add Product" onAction="#handleAdd" styleClass="add-btn"/>
+                <Button fx:id="editBtn" text="✏ Edit" onAction="#handleEdit" styleClass="edit-btn"/>
+                <Button fx:id="deleteBtn" text="🗑 Delete" onAction="#handleDelete" styleClass="danger-btn"/>
+                <Button text="↻ Refresh" onAction="#handleRefresh" styleClass="nav-btn"/>
+            </HBox>
+
+            <TableView fx:id="productTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                    <TableColumn fx:id="colBarcode" text="Barcode" prefWidth="90"/>
+                    <TableColumn fx:id="colName" text="Product Name" prefWidth="200"/>
+                    <TableColumn fx:id="colCategory" text="Category" prefWidth="110"/>
+                    <TableColumn fx:id="colPrice" text="Price" prefWidth="90"/>
+                    <TableColumn fx:id="colStock" text="Stock Qty" prefWidth="90"/>
+                    <TableColumn fx:id="colTax" text="Tax Rate" prefWidth="80"/>
+                </columns>
+            </TableView>
+
+            <Label fx:id="statusLabel" styleClass="status-label"/>
+        </VBox>
+    </center>
+</BorderPane>

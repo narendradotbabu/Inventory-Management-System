@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.retailpos.controller.LoginController"
+           styleClass="login-root">
+    <VBox alignment="CENTER" spacing="0" maxWidth="400" maxHeight="480"
+          styleClass="login-card">
+        <padding><Insets top="50" right="50" bottom="50" left="50"/></padding>
+
+        <Label text="🛒" style="-fx-font-size:48;"/>
+        <Label text="RetailPOS" styleClass="login-title"/>
+        <Label text="Inventory &amp; Billing System" styleClass="login-subtitle"/>
+
+        <Region VBox.vgrow="NEVER" prefHeight="30"/>
+
+        <Label text="Username" styleClass="field-label" alignment="CENTER_LEFT" maxWidth="Infinity"/>
+        <TextField fx:id="usernameField" promptText="Enter username" styleClass="login-field"/>
+
+        <Region prefHeight="10"/>
+
+        <Label text="Password" styleClass="field-label" alignment="CENTER_LEFT" maxWidth="Infinity"/>
+        <PasswordField fx:id="passwordField" promptText="Enter password" styleClass="login-field"/>
+
+        <Region prefHeight="8"/>
+        <Label fx:id="errorLabel" styleClass="error-label" wrapText="true" maxWidth="300"/>
+
+        <Region prefHeight="20"/>
+        <Button text="LOGIN" onAction="#handleLogin" styleClass="login-btn" maxWidth="Infinity" prefHeight="44"/>
+
+        <Region prefHeight="20"/>
+        <Label text="Welcome Team Please Login"
+               style="-fx-font-size:11; -fx-text-fill:#aaa;" wrapText="true" textAlignment="CENTER" alignment="CENTER" maxWidth="Infinity"/>
+    </VBox>
+</StackPane>

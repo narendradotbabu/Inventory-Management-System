@@ -1,0 +1,277 @@
+/* ===== ROOT & RESET ===== */
+.root {
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: #f0f2f5;
+    -fx-accent: #1565c0;
+    -fx-focus-color: #1565c0;
+    -fx-faint-focus-color: rgba(21, 101, 192, 0.15);
+    -fx-selection-bar: #1565c0;
+    -fx-selection-bar-non-focused: #bbdefb;
+    -fx-highlight-fill: #1565c0;
+    -fx-highlight-text-fill: white;
+}
+
+/* ===== LOGIN ===== */
+.login-root {
+    -fx-background-color: linear-gradient(to bottom right, #1a237e, #283593, #1565c0);
+}
+.login-card {
+    -fx-background-color: white;
+    -fx-background-radius: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 30, 0, 0, 8);
+}
+.login-title {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a237e;
+}
+.login-subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #78909c;
+}
+.field-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #546e7a;
+    -fx-padding: 0 0 2 0;
+}
+.login-field {
+    -fx-pref-height: 40;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 0 12 0 12;
+    -fx-font-size: 13px;
+}
+.login-field:focused {
+    -fx-border-color: #1565c0;
+    -fx-border-width: 2;
+}
+.login-btn {
+    -fx-background-color: #1565c0;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+.login-btn:hover { -fx-background-color: #1976d2; }
+.login-btn:pressed { -fx-background-color: #0d47a1; }
+.error-label {
+    -fx-text-fill: #e53935;
+    -fx-font-size: 12px;
+    -fx-padding: 4 8 4 8;
+    -fx-background-color: #ffebee;
+    -fx-background-radius: 4;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+    -fx-background-color: #1a237e;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 3, 0);
+}
+.sidebar-logo {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-padding: 0 0 4 0;
+}
+.sidebar-user {
+    -fx-font-size: 11px;
+    -fx-text-fill: #90caf9;
+}
+.nav-btn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #bbdefb;
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 10 12 10 12;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+}
+.nav-btn:hover { -fx-background-color: rgba(255,255,255,0.12); -fx-text-fill: white; }
+.nav-active {
+    -fx-background-color: rgba(255,255,255,0.2) !important;
+    -fx-text-fill: white !important;
+    -fx-font-weight: bold;
+}
+.logout-btn { -fx-text-fill: #ef9a9a; }
+.logout-btn:hover { -fx-background-color: rgba(244,67,54,0.15) !important; -fx-text-fill: #ef5350 !important; }
+
+/* ===== CONTENT ===== */
+.content-area { -fx-background-color: #f0f2f5; }
+.main-root { -fx-background-color: #f0f2f5; }
+
+/* ===== PANEL ===== */
+.panel {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 2);
+}
+.panel-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #37474f;
+}
+.section-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a237e;
+}
+
+/* ===== TOP BAR ===== */
+.pos-topbar {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0, 0, 2);
+}
+.pos-root { -fx-background-color: #f0f2f5; -fx-padding: 8; }
+
+/* ===== SEARCH FIELDS ===== */
+.search-field {
+    -fx-pref-height: 36;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 0 12;
+}
+.search-field:focused { -fx-border-color: #1565c0; }
+
+/* ===== PRODUCT CARDS ===== */
+.product-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-color: #e8ecf0;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 4, 0, 0, 1);
+}
+.product-card:hover {
+    -fx-border-color: #1565c0;
+    -fx-effect: dropshadow(gaussian, rgba(21,101,192,0.25), 10, 0, 0, 3);
+    -fx-background-color: #f3f7ff;
+}
+.product-card-name { -fx-font-weight: bold; -fx-font-size: 12px; -fx-text-fill: #263238; }
+.product-card-cat  { -fx-font-size: 10px; -fx-text-fill: #90a4ae; }
+.product-card-price { -fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #1565c0; }
+.product-card-stock { -fx-font-size: 10px; -fx-text-fill: #66bb6a; }
+.low-stock { -fx-text-fill: #ef5350 !important; }
+
+/* ===== CART TABLE ===== */
+.cart-table .column-header { -fx-background-color: #f5f7fa; }
+.cart-table .column-header-background { -fx-background-color: #f5f7fa; }
+
+/* ===== TOTALS ===== */
+.totals-grid { -fx-background-color: #f8f9fa; -fx-background-radius: 8; }
+.totals-label { -fx-text-fill: #546e7a; }
+.totals-value { -fx-text-fill: #263238; -fx-alignment: CENTER_RIGHT; }
+.total-big-label { -fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #263238; }
+.total-big-value { -fx-font-weight: bold; -fx-font-size: 18px; -fx-text-fill: #1565c0; -fx-alignment: CENTER_RIGHT; }
+.change-label { -fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #2e7d32; }
+
+/* ===== PAYMENT BOX ===== */
+.payment-box { -fx-background-color: #f8f9fa; -fx-background-radius: 8; }
+
+/* ===== BUTTONS ===== */
+.pay-btn {
+    -fx-background-color: #2e7d32;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+.pay-btn:hover { -fx-background-color: #388e3c; }
+.clear-btn {
+    -fx-background-color: #ef6c00;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+}
+.clear-btn:hover { -fx-background-color: #f57c00; }
+.add-btn {
+    -fx-background-color: #1565c0;
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-padding: 7 14;
+}
+.add-btn:hover { -fx-background-color: #1976d2; }
+.edit-btn {
+    -fx-background-color: #f57f17;
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-padding: 7 14;
+}
+.danger-btn {
+    -fx-background-color: #c62828;
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-padding: 7 14;
+}
+.danger-btn:hover { -fx-background-color: #d32f2f; }
+.qty-btn {
+    -fx-background-color: #e3f2fd;
+    -fx-text-fill: #1565c0;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-pref-width: 28;
+    -fx-pref-height: 26;
+    -fx-padding: 0;
+}
+.qty-btn:hover { -fx-background-color: #bbdefb; }
+.delete-btn { -fx-background-color: #ffebee; -fx-text-fill: #c62828; }
+
+/* ===== STATUS ===== */
+.status-label { -fx-font-size: 12px; -fx-padding: 4 8; }
+.status-ok { -fx-text-fill: #2e7d32; -fx-background-color: #e8f5e9; -fx-background-radius: 4; }
+.status-error { -fx-text-fill: #c62828; -fx-background-color: #ffebee; -fx-background-radius: 4; }
+
+/* ===== KPI CARDS ===== */
+.kpi-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-border-color: #e3f2fd;
+    -fx-border-width: 2;
+    -fx-border-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.07), 6, 0, 0, 2);
+}
+.kpi-title { -fx-font-size: 12px; -fx-text-fill: #78909c; }
+.kpi-value { -fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #1565c0; }
+
+/* ===== MISC ===== */
+.stat-chip {
+    -fx-background-color: #e3f2fd;
+    -fx-text-fill: #1565c0;
+    -fx-background-radius: 12;
+    -fx-padding: 4 12;
+    -fx-font-size: 12px;
+}
+.txn-label { -fx-font-size: 12px; -fx-text-fill: #546e7a; }
+.datetime-label { -fx-font-size: 12px; -fx-text-fill: #78909c; }
+.product-scroll { -fx-background-color: transparent; -fx-border-color: transparent; }
+
+/* ===== TABLE ===== */
+.table-view .table-row-cell:selected,
+.table-view:focused .table-row-cell:selected {
+    -fx-background-color: #1565c0;
+}
+.table-view .table-row-cell:selected .text,
+.table-view:focused .table-row-cell:selected .text,
+.table-view .table-cell:selected,
+.table-view:focused .table-cell:selected {
+    -fx-fill: white;
+    -fx-text-fill: white;
+}
+.table-view .table-row-cell:hover { -fx-background-color: #f5f9ff; }
+
+/* ===== TEXT SELECTION ===== */
+.text-input,
+.text-area {
+    -fx-highlight-fill: #1565c0;
+    -fx-highlight-text-fill: white;
+}

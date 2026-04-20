@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Run RetailPOS",
+            "request": "launch",
+            "mainClass": "com.retailpos.MainApp",
+            "projectName": "retailpos",
+            "vmArgs": "--module-path ${env:PATH_TO_FX} --add-modules javafx.controls,javafx.fxml"
+        }
+    ]
+}

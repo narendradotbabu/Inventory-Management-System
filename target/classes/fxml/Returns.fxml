@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.retailpos.controller.ReturnsController"
+            styleClass="pos-root">
+
+    <top>
+        <HBox styleClass="pos-topbar" spacing="12" alignment="CENTER_LEFT">
+            <padding><Insets top="10" right="16" bottom="10" left="16"/></padding>
+            <Label text="Returns &amp; Exchanges" styleClass="section-title"/>
+        </HBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.45">
+            <!-- New Return Form -->
+            <VBox spacing="10" styleClass="panel">
+                <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                <Label text="Process Return / Exchange" styleClass="panel-title"/>
+
+                <GridPane hgap="12" vgap="10">
+                    <Label text="Sale ID:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                    <TextField fx:id="saleIdField" promptText="Enter Sale ID"
+                               GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="180"/>
+
+                    <Label text="Product ID:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                    <TextField fx:id="productIdField" promptText="Product ID"
+                               GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Label text="Quantity:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                    <TextField fx:id="quantityField" promptText="Qty to return"
+                               GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <Label text="Return Type:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                    <ComboBox fx:id="returnTypeCombo" GridPane.columnIndex="1" GridPane.rowIndex="3"
+                              prefWidth="180"/>
+
+                    <Label text="Refund Amount (₹):" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                    <TextField fx:id="refundAmountField" promptText="0.00"
+                               GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                </GridPane>
+
+                <Button text="✓ Process Return" onAction="#handleProcessReturn"
+                        styleClass="pay-btn" maxWidth="Infinity" prefHeight="40"/>
+                <Label fx:id="statusLabel" styleClass="status-label" wrapText="true"/>
+            </VBox>
+
+            <!-- Returns History -->
+            <VBox spacing="8" styleClass="panel">
+                <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
+                <Label text="Returns History" styleClass="panel-title"/>
+
+                <TableView fx:id="returnsTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                        <TableColumn fx:id="colSaleId" text="Sale ID" prefWidth="70"/>
+                        <TableColumn fx:id="colProduct" text="Product" prefWidth="150"/>
+                        <TableColumn fx:id="colQty" text="Qty" prefWidth="50"/>
+                        <TableColumn fx:id="colType" text="Type" prefWidth="80"/>
+                        <TableColumn fx:id="colRefund" text="Refund" prefWidth="80"/>
+                        <TableColumn fx:id="colDate" text="Date" prefWidth="130"/>
+                        <TableColumn fx:id="colStatus" text="Status" prefWidth="80"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </SplitPane>
+    </center>
+</BorderPane>
